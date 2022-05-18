@@ -9,6 +9,9 @@ var generatePassword = function(){
   }else if(Number(passwordLength)%1 > 0){
     window.alert("Please enter a whole number!");
     writePassword();
+  }else if(Number(passwordLength) < 8 || Number(passwordLength) > 128){
+    window.alert("Please enter a number between 8 and 128!");
+    writePassword();
   }
 
   var ifCapital = window.confirm("Would you like to include capital letters? OK = yes | cancel = no");
@@ -19,12 +22,25 @@ var generatePassword = function(){
   var letters = "abcdefghijklmnopqrstuvwxyz"
   var password = "";
 
+  //initial password generation with just lowercase letters
   for(i = 0; i < length; i++){
     password += letters.charAt(Math.floor(Math.random()*26));//concatanate a random char between index 0-25 to the password string
   }
 
+  //insert capital letters randomly through out
+  if(ifCapital){
+    var passwordCapital = "";
+    for(i = 0; i < length; i++){
+      var coin = Math.random();
+      if(coin > 0.49){
+        passwordCapital += password.charAt(i).toUpperCase();
+      }else{
+        passwordCapital += password.charAt(i);
+      }
+    }
+    password = passwordCapital;
+  }
   console.log(password);
-
 }
 
 // Get references to the #generate element
