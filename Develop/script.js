@@ -6,7 +6,7 @@ var generatePassword = function(){
   if(Number(passwordLength) === NaN){
     window.alert("Please enter a valid number!");
     writePassword();
-  }else if(Number(passwordLength)%1 === 0)){
+  }else if(Number(passwordLength)%1 > 0){
     window.alert("Please enter a whole number!");
     writePassword();
   }
@@ -14,6 +14,17 @@ var generatePassword = function(){
   var ifCapital = window.confirm("Would you like to include capital letters? OK = yes | cancel = no");
   var ifNum = window.confirm("Would you also like to include numbers? OK = yes | cancel = no");
   var ifSpecial = window.confirm("Would you like to include special characters? EX- &,*,%,#, etc. OK = yes | cancel = no");
+
+  var length = Number(passwordLength);
+  var letters = "abcdefghijklmnopqrstuvwxyz"
+  var password = "";
+
+  for(i = 0; i < length; i++){
+    password += letters.charAt(Math.floor(Math.random()*26));//concatanate a random char between index 0-25 to the password string
+  }
+
+  console.log(password);
+
 }
 
 // Get references to the #generate element
