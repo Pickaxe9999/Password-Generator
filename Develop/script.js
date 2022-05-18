@@ -27,7 +27,7 @@ var generatePassword = function(){
     password += letters.charAt(Math.floor(Math.random()*26));//concatanate a random char between index 0-25 to the password string
   }
 
-  //insert capital letters randomly through out
+  //insert capital letters randomly throughout
   if(ifCapital){
     var passwordCapital = "";
     for(i = 0; i < length; i++){
@@ -40,7 +40,41 @@ var generatePassword = function(){
     }
     password = passwordCapital;
   }
-  console.log(password);
+
+  //insert number randomly throughout
+  if(ifNum){
+    var passwordNum = "";
+    var number = "0123456789";
+    for(i = 0; i < length; i++){
+      var coin = Math.random();
+      var randomNum = number.charAt(Math.floor(Math.random()*number.length));
+      if(coin > 0.49){
+        passwordNum += randomNum;
+      }else{
+        passwordNum += password.charAt(i);
+      }
+    }
+    password = passwordNum;
+  }
+
+  //insert special characters randomly throughout
+  if(ifNum){
+    var passwordSpecial = "";
+    var specialChar = "!\"#$%&'()*+,-./:;<=>?@[\\\]^_`{|}~";
+    console.log(specialChar);
+    for(i = 0; i < length; i++){
+      var coin = Math.random();
+      var randomChar = specialChar.charAt(Math.floor(Math.random()*specialChar.length));
+      if(coin > 0.49){
+        passwordSpecial += randomChar;
+      }else{
+        passwordSpecial += password.charAt(i);
+      }
+    }
+    password = passwordSpecial;
+  }
+
+  return password;
 }
 
 // Get references to the #generate element
