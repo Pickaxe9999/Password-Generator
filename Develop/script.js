@@ -58,7 +58,7 @@ var generatePassword = function(){
   }
 
   //insert special characters randomly throughout
-  if(ifNum){
+  if(ifSpecial){
     var passwordSpecial = "";
     var specialChar = "!\"#$%&'()*+,-./:;<=>?@[\\\]^_`{|}~";
     console.log(specialChar);
@@ -74,6 +74,7 @@ var generatePassword = function(){
     password = passwordSpecial;
   }
 
+  console.log(password);
   return password;
 }
 
