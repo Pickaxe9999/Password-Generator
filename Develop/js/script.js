@@ -2,17 +2,22 @@
 var generatePassword = function(){
 
   //prompt user for the password length
-  var passwordLength = window.prompt("Please enter the desired length for your password between 8 and 128 Characters.");
-  if(Number(passwordLength) === NaN){
-    window.alert("Please enter a valid number!");
-    writePassword();
-  }else if(Number(passwordLength)%1 > 0){
-    window.alert("Please enter a whole number!");
-    writePassword();
-  }else if(Number(passwordLength) < 8 || Number(passwordLength) > 128){
-    window.alert("Please enter a number between 8 and 128!");
-    writePassword();
+  var redo = true;
+  var passwordLength = 0;
+  while(redo){
+    passwordLength = window.prompt("Please enter the desired length for your password between 8 and 128 Characters.");
+    if(isNaN(passwordLength)){
+      window.alert("Please enter a valid number!");
+    }else if(Number(passwordLength)%1 > 0){
+      window.alert("Please enter a whole number!");
+    }else if(Number(passwordLength) < 8 || Number(passwordLength) > 128){
+      window.alert("Please enter a number between 8 and 128!");
+    }else{
+      redo = false;
+    }
   }
+  
+
 
   var ifCapital = window.confirm("Would you like to include capital letters? OK = yes | cancel = no");
   var ifNum = window.confirm("Would you also like to include numbers? OK = yes | cancel = no");
@@ -61,7 +66,6 @@ var generatePassword = function(){
   if(ifSpecial){
     var passwordSpecial = "";
     var specialChar = "!\"#$%&'()*+,-./:;<=>?@[\\\]^_`{|}~";
-    console.log(specialChar);
     for(i = 0; i < length; i++){
       var coin = Math.random();
       var randomChar = specialChar.charAt(Math.floor(Math.random()*specialChar.length));
