@@ -34,3 +34,12 @@ THEN a password is generated that matches the selected criteria
 
 WHEN the password is generated
 THEN the password is either displayed in an alert or written to the page
+
+screenshot
+![image](https://user-images.githubusercontent.com/103781767/169728890-9dfe54c6-b6f9-4b15-a287-aa055ece57fe.png)
+
+last updated - 5/22/2022
+programmer - Jacob Hannah
+github - https://github.com/Pickaxe9999
+email - jacob.hannah164@gmail.com
+link to deployed app - https://pickaxe9999.github.io/Password-Generator/
